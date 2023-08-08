@@ -6,7 +6,7 @@
 #define SERVO_PIN 4
 #define LDR_PIN 35
 int IRSensora = 34 ;
-
+float lux=0.00,ADC_value=0.0048828125,LDR_value;
 int light_threshold = 500;
 
 char keys[ROW_NUM][COLUMN_NUM] = {
@@ -34,7 +34,7 @@ doorLock.attach(4); // attaches the servo on pin 4 to the servo object
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int ldr_value = analogRead(LDR_PIN);
+  float ldr_value = analogRead(LDR_PIN);
   int sensorstatus2= analogRead(IRSensora);
   int dist = map(sensorstatus2, 0, 4095, 0, 25);
   char keyPressed = keypad.getKey();
@@ -69,7 +69,8 @@ void loop() {
     delay(10);                       // waits 15ms for the servo to reach the position
   }
       Serial.print("Light Intensity: ");
-      Serial.print(ldr_value);
+      lux=(250.000000/(ADC_value*ldr_value))-50.000000;
+      Serial.print(lux);
       Serial.println(" Lux");
       Serial.print("Proximity: ");
       Serial.print(dist);
