@@ -72,8 +72,11 @@ void loop() {
       lux=(250.000000/(ADC_value*ldr_value))-50.000000;
       Serial.print(lux);
       Serial.println(" Lux");
+
+      float distCM = dist/10.0;
       Serial.print("Proximity: ");
-      Serial.print(dist);
+      Serial.print(distCM);
+      Serial.println(" cm");
     } else {
       Serial.println("\nPassword Incorrect");
     }
