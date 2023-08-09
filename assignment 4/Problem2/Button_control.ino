@@ -39,17 +39,33 @@ void loop() {
     
      for (pos = 0; pos <= 180; pos++) {   
       myservo.write(pos);
-      //Serial.println(pos);
-      lcd.setCursor(0, 1); 
-      lcd.print(pos); 
-      delay(20);                         
+      Serial.println(pos); 
+      lcd.setCursor(0, 0);  
+      lcd.print("Angle = ");  
+      lcd.setCursor(0, 1);  
+      if (pos < 100) {
+        lcd.print(" ");
+  }
+      if (pos < 10) {
+        lcd.print(" ");
+  }
+       lcd.print(pos); 
+       delay(20);                         
      }
-     for (pos = 180; pos >= 0; pos--) {   
-       myservo.write(pos);  
-       //Serial.println(pos);
-       lcd.setCursor(0, 1); 
-       lcd.print(pos);                
-       delay(20);  
+      for (pos = 180; pos >= 0; pos--) {   
+        myservo.write(pos);  
+        Serial.println(pos); 
+        lcd.setCursor(0, 0);  
+        lcd.print("Angle = ");  
+        lcd.setCursor(0, 1);  
+        if (pos < 100) {
+        lcd.print(" ");
+  }
+        if (pos < 10) {
+          lcd.print(" ");
+  }
+        lcd.print(pos);                
+        delay(20);  
      }
     
   } 
@@ -91,6 +107,4 @@ void loop() {
     }
     delay(100);
     
-
-
   }
