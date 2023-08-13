@@ -26,5 +26,5 @@ void loop() {
   lcd.print(" I ");
   lcd.write(byte(0)); // Write the custom character
   lcd.setCursor(0, 1);
-  lcd.print('IOT Training');
+  lcd.print("IOT Training");
 }
