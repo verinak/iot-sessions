@@ -1,80 +1,63 @@
-import 'package:first_project/SecondScreen.dart';
+import 'package:first_app/login_screen.dart';
+import 'package:first_app/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class Task {
-  final String title;
-  bool isCompleted;
-
-  Task(this.title, {this.isCompleted = false});
-}
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'To-Do List App',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  List<Task> tasks = [
-    Task('Finish training session'),
-    Task('Finish Tasks'),
-    Task('Go HOME'),
-  ];
-
-  void toggleTaskCompletion(int index) {
-    setState(() {
-      tasks[index].isCompleted = !tasks[index].isCompleted;
-    });
-  }
-
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('To-Do List'),
-        backgroundColor: Color(0xffec1938),
-
+        title: Text('Welcome Screen'),
       ),
-
-      body: Column(
-        children: [
-          Expanded(child: ListView.builder(
-            itemCount: tasks.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(tasks[index].title),
-                trailing: Checkbox(value: tasks[index].isCompleted,
-                  onChanged: (value) => toggleTaskCompletion(index),
-                ),
-              );
-            },
-          ),
-          ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context) => SecondScreen()),
-            );
-          },
-            child: Text("Go to Second Screen"),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'lib/assets/images/logo.png', // Replace with your image path.
+              width: 200,
+              height: 200,
+            ),
+            SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Text('Log In'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupScreen()),
+                );
+              },
+              child: Text('Sign Up'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-// Column
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome Screen',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: WelcomeScreen(),
+    );
+  }
+}
