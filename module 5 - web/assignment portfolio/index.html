@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>✨ Our Portfolio ✨</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body, html{
+            margin:0;
+            padding:0;
+        }   
+
+        html{
+            min-height: 100%;
+        }
+
+        body {
+            background-image: url(bg1.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial;
+
+        }
+
+        .header {
+            background: rgba(255, 192, 203, 0.8);
+            padding: 20px;
+            padding-top: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header-container {
+            float: left;
+            margin: 0px 30px;
+            font-size: 22px;
+        }
+
+
+        h1 {
+            color: #bf1f49;
+            font-size: 50px;
+            padding:0px;
+        }
+
+        hr {
+            height:1px;
+            border-width:0;
+            color:#5e1327;
+            background-color:#5e1327;
+            margin-bottom: 40px;
+        }
+
+        .icon {
+            width:400px;
+            border-radius: 15%;
+        }
+
+        table, tr, th, td {
+            border: 2px solid;
+            border-color: maroon; 
+            border-collapse: collapse;
+            padding:5px;
+            text-align: left;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background: rgba(242, 225, 228, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        }
+
+        .image-container {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .images{
+            float: left;
+            margin: 0px 20px;
+            width:300px;
+            border-radius: 15%;
+        }
+        
+        
+        .content-tab{
+            padding: 0px 20px;
+            display:none;
+            font-size: 20px;
+        }
+
+        a:link {
+            color: maroon;
+        }
+        a:visited {
+            color: maroon;
+        }
+        a:hover {
+            color: mistyrose;
+        }
+
+    </style>
+
+    <script>
+        var visible = "verina";
+        function openTab(myname) {
+            if(visible !== myname) {
+                document.getElementById(myname).style.display="block";
+                document.getElementById(visible).style.display="none";
+                visible = myname;
+            }
+        }
+    </script>
+
+</head>
+   <body>
+    <div class="header">
+        <h1> Our Portfolio</h1>
+        <hr/>
+        <div class="header-container">
+            <img class="icon" src="icon1.jpg" alt="profile icon"/>
+        </div>
+        <div class="header-container">
+            <p><strong>Team 10 - Web Team</strong></p>
+            <table width= 450 height=100>
+                <tr style="color:maroon;">
+                    <th>Name</th>
+                    <th>ID</th>
+                </tr>
+                <tr >
+                    <td>Vérina Michel Asham</td>
+                    <td>20221440977</td>
+                </tr>
+                <!-- w di m4 el mafroud teb2a 3amla keda?? -->
+                <tr>
+                    <td>Ola Mamdouh Mahdi</td>
+                    <td>20221365645</td>
+                </tr>
+                <tr>
+                    <td>Marly Magdy Kamal</td>
+                    <td>20221440960</td>
+                </tr>
+            </table>
+            <br/><br/>
+            <a href="https://www.github.com/verinak/iot-sessions" target="_blank">Team 10 Training Github Repo</a>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img class="images" onclick="openTab('verina')" src="icon2.jpg" alt="verina"/>
+            <img class="images" onclick="openTab('ola')" src="icon3.jpg" alt="ola"/>
+            <img class="images" onclick="openTab('marly')" src="icon4.jpg" alt="marly"/>
+        </div>
+        <br/>
+
+        <div class="content-tab" id="verina" style="display: block;">
+            <h2>verina's song reccomendations</h2>
+            <ul type="square" >
+                <li>Akari - Soushi Sakiyama</li>
+                <li>Slay - Everglow</li>
+                <li>Lover of Mine - 5sos</li>
+                <li>Star - Onewe</li>
+                <li>Teddy Bear - StayC</li>
+            </ul>
+        </div>
+
+        <div class="content-tab" id="ola">
+            <h2>ola's pinterest feed</h2>
+            <video width="300" controls>
+                <source src="ola-video.mp4" type=video/mp4>
+            </video>
+        </div>
+
+        <div class="content-tab" id="marly">
+            <h2>marly's to do list</h2>
+            <form>
+                <input type="checkbox">
+                <label for="vehicle1"> study simulation</label><br>
+                <input type="checkbox">
+                <label for="vehicle2"> finish simulation assignment</label><br>
+                <input type="checkbox">
+                <label for="vehicle3"> finish IoT assignmnt</label><br>
+            </form>
+        </div>
+    </div>
+    
+     
+
+
+   </body>
+
+</html>
