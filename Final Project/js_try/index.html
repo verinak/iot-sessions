@@ -40,8 +40,9 @@
         var timestamp = new Date(). getTime()
         var dbpath =  'inputs/' + timestamp
         var firebaseRef = ref(database,dbpath);
+        var bpm = document.getElementById('mytext').value;
         const myJSON = {
-          message : document.getElementById('mytext').value,
+          bpm : parseInt(bpm),
           timestamp : timestamp
         }
 
