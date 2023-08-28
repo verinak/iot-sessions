@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- <script src = https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js></script>
+    <script src = https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js></script> -->
+
+  </head>
+  <body>
+
+    <input type="text" id="mytext">
+    <input type="button" id="send" value="Send">
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+      import { getDatabase, ref, push, set, update } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCTpd8btoHtv7Qei9RKZj14KESSMI-co0I",
+        authDomain: "bagarab-fih.firebaseapp.com",
+        projectId: "bagarab-fih",
+        storageBucket: "bagarab-fih.appspot.com",
+        messagingSenderId: "109963127471",
+        appId: "1:109963127471:web:5565153168f7b612d4025a",
+        databaseURL: "https://bagarab-fih-default-rtdb.firebaseio.com/"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      // Initialize Realtime Database and get a reference to the service
+      const database = getDatabase(app);
+
+      // https://firebase.google.com/docs/database/web/read-and-write#write_data
+      // habddd
+      document.querySelector("#send").addEventListener('click', ()=>{
+        var timestamp = new Date(). getTime()
+        var dbpath =  'inputs/' + timestamp
+        var firebaseRef = ref(database,dbpath);
+        const myJSON = {
+          message : document.getElementById('mytext').value,
+          timestamp : timestamp
+        }
+
+        update(firebaseRef, myJSON)
+      });
+    </script>
+
+  </body>
+</html>
