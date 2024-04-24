@@ -19,6 +19,6 @@ For our final project, we built an Arduino-based mechanical ventilator that simu
 [Verina Michel](https://github.com/verinak)<br>
 [Ola Mamdouh](https://github.com/olamahdi)<br>
 [Marly Magdy](https://github.com/marlymagdy)<br>
-[Maria Anwar](https://github.com/Maria1516)<br>
+[Maria Anwar](https://github.com/MariAnwar)<br>
 [Mariem Nasr](https://github.com/MariemNasr)<br>
 [Mirna Tarek](https://github.com/Mirna-tarek)<br>
